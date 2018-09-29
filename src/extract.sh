@@ -55,7 +55,7 @@ count=6
 questionstart=36
 extract_set
 
-cardset=jug
+cardset=coffeepot
 start=26
 count=7
 questionstart=48
