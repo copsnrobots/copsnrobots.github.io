@@ -7,9 +7,11 @@ extract() {
     local page=$1
     local crop=$2
     local outfile=$3
-    if ! convert -density 300 "$file[$page]" -crop "$crop" -rotate "$rotation" "$outfile"; then
-        echo 'Failed command:' convert -density 300 "'$file[$page]'" -crop "$crop" -rotate "$rotation" "'$outfile'"
-        exit
+    if ! [ -f "$outfile" ]; then
+        if ! convert -density 300 "$file[$page]" -crop "$crop" -rotate "$rotation" "$outfile"; then
+            echo 'Failed command:' convert -density 300 "'$file[$page]'" -crop "$crop" -rotate "$rotation" "'$outfile'"
+            exit
+        fi
     fi
 }
 
