@@ -60,3 +60,24 @@ start=26
 count=7
 questionstart=48
 extract_set
+
+cardsize=806x$triple_height
+rotation=0
+page=62
+mkdir -p "images/notes/"
+extract "$((page+1))" "$cardsize+150+150" "images/notes/back.png"
+
+i=0
+count=26
+while true; do
+    for offset_y in $triple_split; do
+        for offset_x in 150 1592; do
+            extract "$page" "$cardsize+$offset_x+$offset_y" "images/notes/$i.png"
+            i=$((i+1))
+            if [ "$i" -eq "$count" ]; then
+                break 3
+            fi
+        done
+    done
+    page=$((page+2))
+done
