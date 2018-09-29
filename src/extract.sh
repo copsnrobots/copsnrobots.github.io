@@ -1,21 +1,33 @@
 set -eu -o pipefail
 
-extract_set() {
-    backpage=$((start + 1))
-    mkdir -p images/$cardset/{suspect,investigator}
-    convert -density 300 "$file[$((start+1))]" -crop $cardsize+150+150 -rotate 90 "images/$cardset/suspect/back.png"
-    convert -density 300 "$file[$start]" -crop $cardsize+150+150 -rotate 90 "images/$cardset/suspect/human.png"
-    i=0
-    page=$((start+4))
+extract_faces() {
+    local page="$1"
+    local path="$2"
+    local count="$3"
+    local i=0
     while true; do
         for offset in 150 1237 2325; do
-            convert -density 300 "$file[$page]" -crop $cardsize+150+$offset -rotate 90 "images/$cardset/suspect/robot-$((i++)).png"
-            if [ $i -eq $count ]; then
+            if [ "$count" -eq 1 ]; then
+                local suffix=".png"
+            else
+                local suffix="-$i.png"
+            fi
+
+            convert -density 300 "$file[$page]" -crop $cardsize+150+$offset -rotate 90 "$path$suffix"
+            i=$((i+1))
+            if [ "$i" -eq "$count" ]; then
                 break 2
             fi
         done
         page=$((page+2))
     done
+}
+
+extract_set() {
+    mkdir -p images/$cardset/{suspect,investigator}
+    extract_faces "$((start+1))" "images/$cardset/suspect/back" 1
+    extract_faces "$start" "images/$cardset/suspect/human" 1
+    extract_faces "$((start+4))" "images/$cardset/suspect/robot" $count
 }
 
 file="pdfs/Inhuman Conditions Print & Play (Updated Public File).pdf"
