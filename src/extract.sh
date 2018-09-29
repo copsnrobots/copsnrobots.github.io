@@ -1,19 +1,31 @@
 set -eu -o pipefail
 
+triple_split="150 1237 2325"
+triple_height=825
+
+extract() {
+    local page=$1
+    local crop=$2
+    local outfile=$3
+    convert -density 300 "$file[$page]" -crop "$crop" -rotate "$rotation" $outfile
+}
+
 extract_faces() {
+    cardsize=2100x$triple_height
+
     local page="$1"
     local path="$2"
     local count="$3"
     local i=0
     while true; do
-        for offset in 150 1237 2325; do
+        for offset in triple_split; do
             if [ "$count" -eq 1 ]; then
                 local suffix=".png"
             else
                 local suffix="-$i.png"
             fi
 
-            convert -density 300 "$file[$page]" -crop $cardsize+150+$offset -rotate "$rotation" "$path$suffix"
+            extract "$page" "$cardsize+150+$offset" "$path$suffix"
             i=$((i+1))
             if [ "$i" -eq "$count" ]; then
                 break 2
@@ -36,7 +48,6 @@ extract_set() {
 }
 
 file="pdfs/Inhuman Conditions Print & Play (Updated Public File).pdf"
-cardsize=2100x825
 
 cardset=chair
 start=2
