@@ -7,7 +7,10 @@ extract() {
     local page=$1
     local crop=$2
     local outfile=$3
-    convert -density 300 "$file[$page]" -crop "$crop" -rotate "$rotation" $outfile
+    if ! convert -density 300 "$file[$page]" -crop "$crop" -rotate "$rotation" "$outfile"; then
+        echo 'Failed command:' convert -density 300 "'$file[$page]'" -crop "$crop" -rotate "$rotation" "'$outfile'"
+        exit
+    fi
 }
 
 extract_faces() {
@@ -18,7 +21,7 @@ extract_faces() {
     local count="$3"
     local i=0
     while true; do
-        for offset in triple_split; do
+        for offset in $triple_split; do
             if [ "$count" -eq 1 ]; then
                 local suffix=".png"
             else
@@ -61,8 +64,9 @@ count=7
 questionstart=48
 extract_set
 
-cardsize=806x$triple_height
 rotation=0
+
+cardsize=806x$triple_height
 page=62
 mkdir -p "images/notes/"
 extract "$((page+1))" "$cardsize+150+150" "images/notes/back.png"
@@ -73,6 +77,26 @@ while true; do
     for offset_y in $triple_split; do
         for offset_x in 150 1592; do
             extract "$page" "$cardsize+$offset_x+$offset_y" "images/notes/$i.png"
+            i=$((i+1))
+            if [ "$i" -eq "$count" ]; then
+                break 3
+            fi
+        done
+    done
+    page=$((page+2))
+done
+
+cardsize=825x1275
+page=52
+mkdir -p "images/penalties/"
+extract "$((page+1))" "$cardsize+150+150" "images/penalties/back.png"
+
+i=0
+count=17
+while true; do
+    for offset_y in 150 1873; do
+        for offset_x in 150 1573; do
+            extract "$page" "$cardsize+$offset_x+$offset_y" "images/penalties/$i.png"
             i=$((i+1))
             if [ "$i" -eq "$count" ]; then
                 break 3
