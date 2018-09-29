@@ -58,6 +58,18 @@ count=6
 questionstart=36
 extract_set
 
+cardset=dragon
+start=10
+count=6
+questionstart=40
+extract_set
+
+cardset=rose
+start=18
+count=6
+questionstart=44
+extract_set
+
 cardset=coffeepot
 start=26
 count=7
