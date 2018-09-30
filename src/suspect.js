@@ -35,7 +35,6 @@ function showRoles(packet) {
         }
     }
 
-
     var ul = document.getElementById('roles');
     roles.forEach(function (card) {
         var li = document.createElement('li');
@@ -58,14 +57,9 @@ function showNotes(li, packet, role) {
         if (cards[i] != li) li.parentNode.removeChild(cards[i]);
     }
 
-    var notes = new Set();
-    while (notes.size < 2) {
-        notes.add(Math.floor(Math.random() * otherCards['notes']))
-    }
-
     var ul = document.getElementById('notes');
     ul.className = '';
-    notes.forEach(function (note) {
+    choose(2, otherCards['notes']).forEach(function (note) {
         var li = document.createElement('li');
         var link = document.createElement('a');
         li.appendChild(link);

@@ -48,6 +48,14 @@ function decode(n) {
     return arr;
 }
 
+function choose (k, n) {
+    var set = new Set();
+    while (set.size < k) {
+        set.add(Math.floor(Math.random() * n))
+    }
+    return set;
+}
+
 var packets;
 var otherCards;
 function initialize(func) {
