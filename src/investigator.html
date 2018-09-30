@@ -1,0 +1,26 @@
+<!doctype HTML>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Inhuman Conditions &mdash; Investigator</title>
+<link href="main.css" rel="stylesheet">
+</head>
+<body>
+
+<div id="loading">
+Loading...
+</div>
+
+<div id="investigator" class="hidden">
+<form id="select-suspect" onsubmit="submitSuspectId(); return false;">
+<label for="suspect-id-input">Enter suspect #</label><input id="suspect-id-input" type="numeric"></input><input id="suspect-id-submit" type="submit" value="OK"</input>
+<p id="suspect-id-error" class="hidden">Invalid suspect ID.</p>
+</form>
+<div id="suspect-id"></div>
+<img id="suspect-note" class="hidden">
+</div>
+
+<script src="common.js"></script>
+<script src="investigator.js"></script>
+</body>
+</html>

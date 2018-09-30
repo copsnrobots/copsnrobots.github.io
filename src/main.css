@@ -9,22 +9,36 @@ body {
 img {
     width: 20%;
     height: auto;
+    margin: 0.1cm;
 }
 
 ul {
+    margin: 0;
     padding: 0;
-    margin: 0.1cm 0;
     white-space: nowrap;
     display: block;
 }
 
 li {
     display: inline;
-    margin: 0 0.1cm;
+    margin: 0;
+    padding: 0;
 }
 
 #suspect-id {
     margin: 0.1cm;
-    font-family: 'Lucida Sans Typewriter', monospace;
     height: 1em;
+}
+
+#select-suspect {
+    margin: 0.1cm;
+    height: 1em;
+}
+
+input[type='text'] {
+    font-family: 'Lucida Sans Typewriter', monospace;
+}
+
+#suspect-id-error {
+    color: red;
 }
