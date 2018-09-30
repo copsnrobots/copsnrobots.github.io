@@ -57,10 +57,13 @@ extract_packet() {
     extract_faces "$((start+4))" "cards/$packet/suspect/robot" $count
 
     rotation="0"
-    extract_faces "$((questionstart+1))" "cards/$packet/investigator/back" 1
+    extract_faces "$((questionstart+1))" "cards/$packet/investigator/secondary-back" 1
+    extract_faces "$((questionstart+3))" "cards/$packet/investigator/primary-back" 1
     extract_faces "$((questionstart))" "cards/$packet/investigator/secondary" 3
     extract_faces "$((questionstart+2))" "cards/$packet/investigator/primary" 3
 }
+
+mkdir -p 'cards/'
 
 file="pdfs/Inhuman Conditions Print & Play (Updated Public File).pdf"
 
