@@ -12,7 +12,11 @@ Loading...
 </div>
 
 <div id="investigator" class="hidden">
-<form id="select-suspect" onsubmit="submitSuspectId(); return false;">
+<div id="penalty-id">Select a penalty to <em>remove</em></div>
+<ul id="penalties">
+</ul>
+
+<form id="select-suspect" onsubmit="submitSuspectId(); return false;" class='hidden'>
 <label for="suspect-id-input">Enter suspect #</label><input id="suspect-id-input" type="numeric"></input><input id="suspect-id-submit" type="submit" value="OK"</input>
 <p id="suspect-id-error" class="hidden">Invalid suspect ID.</p>
 </form>

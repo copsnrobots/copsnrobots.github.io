@@ -1,9 +1,35 @@
-function showSuspectId () {
+function showPenalties () {
     document.getElementById('investigator').className = '';
-    document.getElementById('suspect-id-input').focus();
+    var ul = document.getElementById('penalties');
+    ul.className = '';
+    var penalties = choose(3, otherCards['penalties']);
+    penalties.forEach(function (penalty) {
+        var li = document.createElement('li');
+        var link = document.createElement('a');
+        li.appendChild(link);
+        link.onclick = function (penalty) { return function () {
+            var ul = this.parentNode.parentNode;
+            ul.removeChild(this.parentNode);
+            penalties.delete(penalty);
+            for (var i = 0; i < ul.childNodes.length; ++i) {
+                ul.childNodes[i].onclick = undefined;
+            }
+            document.getElementById('penalty-id').innerHTML = 'Interview #' + encode(Array.from(penalties));
+            document.getElementById('select-suspect').className = '';
+        }; }(penalty);
+        var img = document.createElement('img');
+        link.appendChild(img);
+        img.src = '../cards/penalties/' + penalty + '.png';
+        ul.appendChild(li);
+    });
+
 }
 
-initialize(showSuspectId)
+initialize(showPenalties);
+
+function showSuspectId () {
+    document.getElementById('suspect-id-input').focus();
+}
 
 function submitSuspectId () {
     var n = Number(document.getElementById('suspect-id-input').value);
