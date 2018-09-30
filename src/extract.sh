@@ -119,3 +119,12 @@ while true; do
     done
     page=$((page+2))
 done
+
+file="pdfs/Hope And Dreams Cards (Updated Public File).pdf"
+
+cardset=hourglass
+setname="Hopes and Dreams"
+start=0
+count=6
+questionstart=8
+extract_set
