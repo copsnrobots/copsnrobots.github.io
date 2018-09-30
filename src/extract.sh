@@ -118,6 +118,7 @@ while true; do
     done
     page=$((page+2))
 done
+echo "{ \"notes\": $count," > 'cards/other.json'
 
 cardsize=825x1275
 page=52
@@ -138,6 +139,7 @@ while true; do
     done
     page=$((page+2))
 done
+echo "  \"penalties\": $count }" >> 'cards/other.json'
 
 file="pdfs/Hope And Dreams Cards (Updated Public File).pdf"
 
