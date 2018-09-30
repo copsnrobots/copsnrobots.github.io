@@ -21,8 +21,8 @@ function showPackets () {
 initialize(showPackets);
 
 function showRoles(packet) {
-    document.getElementById('choose-packet').className = 'hidden';
-    document.getElementById('choose-role').className = '';
+    hide(document.getElementById('choose-packet'));
+    unhide(document.getElementById('choose-role'));
     var roles = new Map();
     var humans = packets[packet]['humans'];
     while (roles.size < 3) {
@@ -58,7 +58,7 @@ function showNotes(li, packet, role) {
     }
 
     var ul = document.getElementById('notes');
-    ul.className = '';
+    unhide(ul);
     choose(2, otherCards['notes']).forEach(function (note) {
         var li = document.createElement('li');
         var link = document.createElement('a');

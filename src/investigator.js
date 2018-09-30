@@ -1,7 +1,7 @@
 function showPenalties () {
-    document.getElementById('investigator').className = '';
+    unhide(document.getElementById('investigator'));
     var ul = document.getElementById('penalties');
-    ul.className = '';
+    unhide(ul.className);
     var penalties = choose(3, otherCards['penalties']);
     penalties.forEach(function (penalty) {
         var li = document.createElement('li');
@@ -46,13 +46,13 @@ function submitSuspectId () {
         }
     }
 
-    document.getElementById('suspect-id-error').className = '';
+    unhide(document.getElementById('suspect-id-error').className);
 }
 
 function showSuspect(suspect, suspectId) {
     document.getElementById('select-suspect').onsubmit = undefined;
-    document.getElementById('suspect-id-input').className = 'hidden';
-    document.getElementById('suspect-id-submit').className = 'hidden';
+    hide(document.getElementById('suspect-id-input'));
+    hide(document.getElementById('suspect-id-submit'));
     document.getElementById('suspect-id').appendChild(document.createTextNode('Suspect #'+suspectId));
     var img = document.getElementById('suspect-note');
     img.src = '../cards/notes/'+suspect+'.png';

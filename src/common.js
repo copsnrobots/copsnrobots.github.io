@@ -80,3 +80,11 @@ function initialize(func) {
         }
     }
 }
+
+function hide (node) {
+    node.classList.add('hidden')
+}
+
+function unhide (node) {
+    node.classList.remove('hidden')
+}
