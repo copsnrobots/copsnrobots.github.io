@@ -43,10 +43,10 @@ extract_faces() {
 extract_set() {
     mkdir -p cards/$cardset/{suspect,investigator}
     echo -e '\t"'"$cardset"'": {'
-    echo -e '\t\t"description": '"$setname"'",'
+    echo -e '\t\t"description": "'"$setname"'",'
     echo -e '\t\t"humans": 6,'
     echo -e '\t\t"robots": '"$count"
-    echo -e '\t}'
+    echo -en '\t}'
 
     rotation="90"
     extract "$((start+1))" "200x200+1769+464" "cards/$cardset/icon.png"
@@ -71,6 +71,7 @@ start=2
 count=6
 questionstart=36
 extract_set
+echo ','
 
 cardset=dragon
 setname="Demonstrate Imagination"
@@ -78,6 +79,7 @@ start=10
 count=6
 questionstart=40
 extract_set
+echo ','
 
 cardset=rose
 setname="Experience and Process Grief"
@@ -85,6 +87,7 @@ start=18
 count=6
 questionstart=44
 extract_set
+echo ','
 
 cardset=coffeepot
 setname="Apply Creative Problem Solving"
@@ -92,6 +95,7 @@ start=26
 count=7
 questionstart=48
 extract_set
+echo ','
 
 rotation=0
 
