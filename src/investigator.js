@@ -33,7 +33,6 @@ function showPackets(penalties) {
         var link = document.createElement('a');
         li.appendChild(link);
         link.onclick = function (packet) { return function () {
-            penalties.unshift(packets[packet]['index']);
             unhide(document.getElementById('select-suspect'));
             document.getElementById('penalty-id').innerHTML = 'Interview #' + encode(penalties);
         }; }(packet);
