@@ -22,7 +22,6 @@ function showPenalties () {
         img.src = '../cards/penalties/' + penalty + '.png';
         ul.appendChild(li);
     });
-
 }
 
 initialize(showPenalties);
@@ -59,14 +58,14 @@ function submitSuspectId () {
             console.log(suspect);
             suspect = suspect.shift();
             if (suspect < otherCards['notes']) {
-                document.getElementById('select-suspect').className = 'hidden';
+                hide(document.getElementById('select-suspect'));
                 showSuspect(suspect, n);
                 return;
             }
         }
     }
 
-    unhide(document.getElementById('suspect-id-error').className);
+    unhide(document.getElementById('suspect-id-error'));
 }
 
 function showSuspect(suspect, suspectId) {
