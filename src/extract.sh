@@ -47,10 +47,13 @@ extract_set() {
     echo -e '\t\t"humans": 6,'
     echo -e '\t\t"robots": '"$count"
     echo -e '\t}'
+
     rotation="90"
+    extract "$((start+1))" "200x200+1769+464" "cards/$cardset/icon.png"
     extract_faces "$((start+1))" "cards/$cardset/suspect/back" 1
     extract_faces "$start" "cards/$cardset/suspect/human" 1
     extract_faces "$((start+4))" "cards/$cardset/suspect/robot" $count
+
     rotation="0"
     extract_faces "$((questionstart+1))" "cards/$cardset/investigator/back" 1
     extract_faces "$((questionstart))" "cards/$cardset/investigator/secondary" 3
