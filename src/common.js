@@ -14,10 +14,10 @@ function luhn(n) {
     return sum % 10;
 }
 
-var modulus = 12119;
-var multiplier = 10468;
-var inverse = 5887;
-var limit = 100;
+var modulus = 27011;
+var multiplier = 17468;
+var inverse = 10968;
+var limit = 30;
 
 function encode(arr) {
     var n = 0;
