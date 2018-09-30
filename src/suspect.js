@@ -18,25 +18,7 @@ function showPackets () {
     }
 }
 
-var xhr = new XMLHttpRequest();
-xhr.open('GET', '../cards/packets.json');
-xhr.overrideMimeType('text/json');
-xhr.send();
-xhr.onreadystatechange = function () {
-    if (xhr.readyState > 3 && xhr.status==200) {
-        packets = JSON.parse(xhr.responseText);
-        
-        xhr.open('GET', '../cards/other.json');
-        xhr.overrideMimeType('text/json');
-        xhr.send();
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState > 3 && xhr.status==200) {
-                otherCards = JSON.parse(xhr.responseText)
-                showPackets();
-            }
-        }
-    }
-}
+initialize(showPackets);
 
 function showRoles(packet) {
     document.getElementById('choose-packet').className = 'hidden';
