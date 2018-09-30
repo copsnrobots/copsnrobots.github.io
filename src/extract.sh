@@ -40,9 +40,11 @@ extract_faces() {
     done
 }
 
+packet_index=0
 extract_packet() {
     mkdir -p cards/$packet/{suspect,investigator}
     echo -e '\t"'"$packet"'": {'
+    echo -e '\t\t"index": '"$((packet_index++))"','
     echo -e '\t\t"description": "'"$packetname"'",'
     echo -e '\t\t"humans": 6,'
     echo -e '\t\t"robots": '"$count"
@@ -64,7 +66,7 @@ file="pdfs/Inhuman Conditions Print & Play (Updated Public File).pdf"
 
 exec 1>"cards/packets.json"
 echo '{'
-trap "echo '}'" EXIT
+trap "echo -e '\n}'" EXIT
 packet=chair
 packetname="Process Your Day"
 start=2

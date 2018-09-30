@@ -1,21 +1,20 @@
+packet_ids = []
 function showPackets () {
     var ul = document.getElementById('packets');
-    var i = 0;
     for (var packet in packets) {
+        packet_ids[packets[packet]['index']] = packet;
         var li = document.createElement('li');
         var link = document.createElement('a');
         li.appendChild(link);
         link.onclick = function (packet, index) { return function () {
-            showRoles(packet, index);
-        }; }(packet, i);
+            showRoles(packet);
+        }; }(packet);
         var img = document.createElement('img');
         link.appendChild(img)
         img.src = '../cards/' + packet + '/suspect/back.png';
         img.alt = packet;
         img.title = packets[packet]['description'];
         ul.appendChild(li);
-        
-        ++i;
     }
 }
 
@@ -39,7 +38,7 @@ xhr.onreadystatechange = function () {
     }
 }
 
-function showRoles(packet, index) {
+function showRoles(packet) {
     document.getElementById('choose-packet').className = 'hidden';
     document.getElementById('choose-role').className = '';
     var roles = new Map();
@@ -61,6 +60,7 @@ function showRoles(packet, index) {
         var link = document.createElement('a');
         li.appendChild(link);
         link.onclick = function (packet, role) { return function () {
+            this.onclick = undefined;
             showNotes(this.parentNode, packet, role);
         }; }(packet, card);
         var img = document.createElement('img');
@@ -68,6 +68,33 @@ function showRoles(packet, index) {
         img.src = '../cards/' + packet + '/suspect/' + card + '.png';
         ul.appendChild(li);
     });
+}
+
+var modulus = 12119;
+var multiplier = 10468;
+var inverse = 5887;
+var limit = 100;
+function encode(arr) {
+    var n = 0;
+    for (var i = 0; i < arr.length; ++i) {
+        n *= limit+1;
+        console.assert(Number.isInteger(arr[i]));
+        console.assert(0 <= arr[i]);
+        console.assert(arr[i] < limit);
+        n += arr[i]+1;
+    }
+    console.assert(n < modulus);
+    return (n*multiplier) % modulus;
+}
+
+function decode(n) {
+    n *= inverse;
+    var arr = [];
+    while (n > 0) {
+        arr.unshift(n % (limit + 1));
+        n = Math.floor(n / (limit+1));
+    }
+    return arr;
 }
 
 function showNotes(li, packet, role) {
@@ -88,12 +115,16 @@ function showNotes(li, packet, role) {
         var link = document.createElement('a');
         li.appendChild(link);
         link.onclick = function (suspect) { return function () {
+            this.onclick = undefined;
             var li = this.parentNode;
             var notes = li.parentNode.childNodes;
             console.log(notes);
             for (var i = notes.length-1; i >=0; --i) {
                 if (notes[i] != li) li.parentNode.removeChild(notes[i]);
             }
+            document.getElementById('suspect-id').appendChild(
+                document.createTextNode('Suspect #'+encode([suspect]))
+            );
         }; }(note);
         var img = document.createElement('img');
         link.appendChild(img)
