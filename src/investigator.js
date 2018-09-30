@@ -1,7 +1,7 @@
 function showPenalties () {
     unhide(document.getElementById('investigator'));
     var ul = document.getElementById('penalties');
-    unhide(ul.className);
+    unhide(ul);
     var penalties = choose(3, otherCards['penalties']);
     penalties.forEach(function (penalty) {
         var li = document.createElement('li');

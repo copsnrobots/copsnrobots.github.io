@@ -12,15 +12,15 @@ Loading...
 </div>
 
 <div id="investigator" class="hidden">
-<div id="penalty-id">Select a penalty to <em>remove</em></div>
+<div id="penalty-id" class="textbox">Select a penalty to <em>remove</em></div>
 <ul id="penalties">
 </ul>
 
-<form id="select-suspect" onsubmit="submitSuspectId(); return false;" class='hidden'>
+<form id="select-suspect" onsubmit="submitSuspectId(); return false;" class='hidden textbox'>
 <label for="suspect-id-input">Enter suspect #</label><input id="suspect-id-input" type="numeric"></input><input id="suspect-id-submit" type="submit" value="OK"</input>
-<p id="suspect-id-error" class="hidden">Invalid suspect ID.</p>
+<p id="suspect-id-error" class="error hidden">Invalid suspect ID.</p>
 </form>
-<div id="suspect-id"></div>
+<div id="suspect-id" class="textbox"></div>
 <img id="suspect-note" class="hidden">
 </div>
 

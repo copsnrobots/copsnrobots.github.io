@@ -25,20 +25,16 @@ li {
     padding: 0;
 }
 
-#suspect-id {
+.textbox {
     margin: 0.1cm;
     height: 1em;
-}
-
-#select-suspect {
-    margin: 0.1cm;
-    height: 1em;
+    display: block;
 }
 
 input[type='text'] {
     font-family: 'Lucida Sans Typewriter', monospace;
 }
 
-#suspect-id-error {
+.error {
     color: red;
 }
