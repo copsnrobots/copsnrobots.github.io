@@ -7,16 +7,27 @@ body {
 }
 
 img {
-    width: 20%;
-    height: auto;
     margin: 0.1cm;
+}
+
+ul.widecards img {
+    width: auto;
+    height: 31.5vw;
+}
+
+ul.tallcards img {
+    width: 31.5vh;
+    height: auto;
 }
 
 ul {
     margin: 0;
     padding: 0;
-    white-space: nowrap;
     display: block;
+}
+
+ul.tallcards {
+    white-space: nowrap;
 }
 
 li {
@@ -28,7 +39,6 @@ li {
 .textbox {
     margin: 0.1cm;
     height: 1em;
-    display: block;
 }
 
 input[type='text'] {
