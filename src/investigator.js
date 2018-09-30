@@ -52,8 +52,8 @@ function showSuspectId () {
 }
 
 function submitSuspectId () {
-    var n = Number(document.getElementById('suspect-id-input').value);
-    if (Number.isInteger(n) && n >= 10) {
+    var n = document.getElementById('suspect-id-input').value;
+    if (Number.isInteger(Number(n)) && n >= 10) {
         var suspect = decode(n);
         if (undefined !== suspect && suspect.length === 1) {
             console.log(suspect);

@@ -30,13 +30,12 @@ function encode(arr) {
     }
     console.assert(n < modulus);
     n = (n*multiplier) % modulus;
-    return luhn(n) + '' + n;
+    return n + '' + luhn(n);
 }
 
 function decode(n) {
-    n = String(n);
-    var check = n[0];
-    n = Number(n.slice(1));
+    var check = n[n.length-1];
+    n = Number(n.slice(0, n.length-1));
     if (luhn(n) != check) return undefined;
     n *= inverse;
     n %= modulus;
