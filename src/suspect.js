@@ -6,7 +6,7 @@ function showPackets () {
         var li = document.createElement('li');
         var link = document.createElement('a');
         li.appendChild(link);
-        link.onclick = function (packet, index) { return function () {
+        link.onclick = function (packet) { return function () {
             showRoles(packet);
         }; }(packet);
         var img = document.createElement('img');

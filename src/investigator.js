@@ -11,11 +11,11 @@ function showPenalties () {
             var ul = this.parentNode.parentNode;
             ul.removeChild(this.parentNode);
             penalties.delete(penalty);
-            for (var i = 0; i < ul.childNodes.length; ++i) {
-                ul.childNodes[i].onclick = undefined;
+            for (var i = 0; i < ul.children.length; ++i) {
+                ul.children[i].firstChild.onclick = undefined;
             }
-            document.getElementById('penalty-id').innerHTML = 'Interview #' + encode(Array.from(penalties));
-            document.getElementById('select-suspect').className = '';
+            document.getElementById('penalty-id').innerHTML = '';
+            showPackets(Array.from(penalties));
         }; }(penalty);
         var img = document.createElement('img');
         link.appendChild(img);
@@ -26,6 +26,26 @@ function showPenalties () {
 }
 
 initialize(showPenalties);
+
+function showPackets(penalties) {
+    var ul = document.getElementById('packets');
+    for (var packet in packets) {
+        var li = document.createElement('li');
+        var link = document.createElement('a');
+        li.appendChild(link);
+        link.onclick = function (packet) { return function () {
+            penalties.unshift(packets[packet]['index']);
+            unhide(document.getElementById('select-suspect'));
+            document.getElementById('penalty-id').innerHTML = 'Interview #' + encode(penalties);
+        }; }(packet);
+        var img = document.createElement('img');
+        link.appendChild(img)
+        img.src = '../cards/' + packet + '/investigator/primary-back.png';
+        img.alt = packet;
+        img.title = packets[packet]['description'];
+        ul.appendChild(li);
+    }
+}
 
 function showSuspectId () {
     document.getElementById('suspect-id-input').focus();
