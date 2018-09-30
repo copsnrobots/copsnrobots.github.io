@@ -57,6 +57,7 @@ function choose (k, n) {
 
 var packets;
 var otherCards;
+var packetList = [];
 function initialize(func) {
     var xhr = new XMLHttpRequest();
     xhr.open('GET', '../cards/packets.json');
@@ -65,7 +66,9 @@ function initialize(func) {
     xhr.onreadystatechange = function () {
         if (xhr.readyState > 3 && xhr.status==200) {
             packets = JSON.parse(xhr.responseText);
-            
+            for (var packet in packets) {
+                packetList[packets[packet]['index']] = packets[packet];
+            }
             xhr.open('GET', '../cards/other.json');
             xhr.overrideMimeType('text/json');
             xhr.send();
