@@ -65,6 +65,7 @@ function initialize(func) {
             xhr.send();
             xhr.onreadystatechange = function () {
                 if (xhr.readyState > 3 && xhr.status==200) {
+                    document.getElementById('loading').className = 'hidden';
                     otherCards = JSON.parse(xhr.responseText)
                     func();
                 }
