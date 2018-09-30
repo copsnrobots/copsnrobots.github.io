@@ -29,21 +29,20 @@ function encode(arr) {
         n += arr[i]+1;
     }
     console.assert(n < modulus);
-    return luhn(n) + '' + (n*multiplier) % modulus;
-}
-
-function luhnify(n) {
+    n = (n*multiplier) % modulus;
     return luhn(n) + '' + n;
 }
 
 function decode(n) {
+    n = String(n);
     var check = n[0];
     n = Number(n.slice(1));
     if (luhn(n) != check) return undefined;
     n *= inverse;
+    n %= modulus;
     var arr = [];
     while (n > 0) {
-        arr.unshift(n % (limit + 1));
+        arr.unshift(n % (limit + 1) - 1);
         n = Math.floor(n / (limit+1));
     }
     return arr;
