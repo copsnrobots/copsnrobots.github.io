@@ -23,9 +23,9 @@ function encode(arr) {
     var n = 0;
     for (var i = 0; i < arr.length; ++i) {
         n *= limit+1;
-        console.assert(Number.isInteger(arr[i]));
-        console.assert(0 <= arr[i]);
-        console.assert(arr[i] < limit);
+        console.assert(Number.isInteger(arr[i]), arr);
+        console.assert(0 <= arr[i], arr);
+        console.assert(arr[i] < limit, arr);
         n += arr[i]+1;
     }
     console.assert(n < modulus);
