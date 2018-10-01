@@ -11,12 +11,19 @@
 Loading...
 </div>
 
-<div id="choose-packet">
+<div id="suspect" class="hidden">
+
+<form id="select-interview" onsubmit="submitInterviewId(); return false;" class='textbox'>
+<label for="interview-id-input">Enter interview #</label><input id="interview-id-input" type="numeric"></input><input id="interview-id-submit" type="submit" value="OK"</input>
+<p id="suspect-id-error" class="error hidden">Invalid interview ID.</p>
+</form>
+
+<ul id="penalties" class="tallcards"></ul>
+ 
 <ul id="packets" class="tallcards">
 </ul>
 </div>
 
-<div id="choose-role" class="hidden">
 <ul id="roles" class="tallcards"></ul>
 <div id="suspect-id" class="textbox"></div>
 <ul id="notes" class="tallcards hidden"></ul>
