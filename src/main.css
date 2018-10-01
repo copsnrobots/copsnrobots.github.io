@@ -10,12 +10,12 @@ img {
     margin: 0.1cm;
 }
 
-ul.widecards img {
+ul.widecards img, img.widecards {
     width: auto;
     height: 31.5vw;
 }
 
-ul.tallcards img {
+ul.tallcards img, img.tallcards {
     width: 31.5vh;
     height: auto;
 }
