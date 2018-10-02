@@ -91,3 +91,16 @@ function hide (node) {
 function unhide (node) {
     node.classList.remove('hidden')
 }
+
+function addCard(path, list, func) {
+    var li = document.createElement('li');
+    var link = document.createElement('a');
+    li.appendChild(link);
+    link.onclick = func;
+    var img = document.createElement('img');
+    link.appendChild(img);
+    img.src = '../cards/'+path+'.png';
+    list.appendChild(li);
+}
+
+

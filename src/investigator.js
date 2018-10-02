@@ -23,6 +23,11 @@ function showPenalties () {
             unhide(document.getElementById('suspect-id'));
             document.getElementById('interview-id').innerHTML = encode(Array.from(penalties));
             instruct('Tell suspect the interview number. Agree on a topic. Enter suspect number in form VK-82s.');
+
+            var ulChosen = document.getElementById('prompts-chosen');
+            for (var packet in packets) {
+                addCard(packet + '/investigator/primary-back', ulChosen, undefined);
+            }
         }; }(penalty);
         var img = document.createElement('img');
         link.appendChild(img);
@@ -66,17 +71,6 @@ function showSuspect(suspect, suspectId) {
     unhide(img);
 }
 
-function addCard(path, list, func) {
-    var li = document.createElement('li');
-    var link = document.createElement('a');
-    li.appendChild(link);
-    link.onclick = func;
-    var img = document.createElement('img');
-    link.appendChild(img);
-    img.src = '../cards/'+path+'.png';
-    list.appendChild(li);
-}
-
 function enable(node) {
     node.disabled = false;
     node.parentNode.classList.remove('disabled');
@@ -87,6 +81,9 @@ function showPrompts(packet) {
     var ulRest = document.getElementById('prompts');
     var ulChosen = document.getElementById('prompts-chosen');
     unhide(document.getElementById('prompts-separator'));
+    for (var i = ulChosen.children.length-1; i >= 0; --i) {
+        ulChosen.removeChild(ulChosen.children[i]);
+    }
     var chosen = {'primary': 0, 'secondary': 0}
     function swapListFunc (type) { return function swapLists() {
         var ul = this.parentNode.parentNode;
