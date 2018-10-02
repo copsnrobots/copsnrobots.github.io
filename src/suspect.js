@@ -42,6 +42,7 @@ function showPenalties (penalties) {
     });
 }
 
+var chosenPacket;
 function showPackets () {
     var ul = document.getElementById('packets');
     for (var packet in packets) {
@@ -49,6 +50,7 @@ function showPackets () {
         var link = document.createElement('a');
         li.appendChild(link);
         link.onclick = function (packet) { return function () {
+            chosenPacket = packets[packet]['index'];
             showRoles(packet);
         }; }(packet);
         var img = document.createElement('img');
@@ -60,10 +62,7 @@ function showPackets () {
     }
 }
 
-var chosenPacket;
 function showRoles(packet) {
-    chosenPacket = packets[packet]['index'];
-
     hide(document.getElementById('packets'));
     unhide(document.getElementById('roles'));
     var roles = new Map();

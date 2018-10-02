@@ -8,15 +8,21 @@ body {
 
 img {
     margin: 0.1cm;
+    max-width: calc(100% - 0.2cm);
+}
+
+img.icon {
+    width: 1cm;
+    height: auto;
 }
 
 ul.widecards img, img.widecards {
     width: auto;
-    height: 31.5vw;
+    max-height: 5cm;
 }
 
 ul.tallcards img, img.tallcards {
-    width: 31.5vh;
+    max-width: 5cm;
     height: auto;
 }
 
@@ -41,10 +47,59 @@ li {
     height: 1em;
 }
 
-input[type='text'] {
-    font-family: 'Lucida Sans Typewriter', monospace;
-}
-
 .error {
     color: red;
+}
+
+div {
+    max-width: 100vw;
+    max-height: 100vh;
+}
+
+form > table {
+    border: 1px solid;
+    font-size: 10pt;
+}
+
+thead {
+    text-align: center;
+    font-weight: bold;
+    font-size: 18pt;
+}
+
+form td {
+    vertical-align: middle;
+}
+
+td {
+    vertical-align: top;
+}
+
+td.wide {
+    width: 50%;
+}
+
+td.narrow {
+    width: 25%;
+}
+
+textarea, input[type="text"], input[type="numeric"] {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    background-color: #ddd;
+}
+
+textarea {
+    width: 100%;
+}
+
+.disabled {
+    opacity: 50%;
+    color: gray;
+}
+
+.clock {
+    font-size: 500%;
+    text-align: center;
 }

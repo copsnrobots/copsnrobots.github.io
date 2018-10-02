@@ -67,6 +67,7 @@ function initialize(func) {
         if (xhr.readyState > 3 && xhr.status==200) {
             packets = JSON.parse(xhr.responseText);
             for (var packet in packets) {
+                packets[packet]['name'] = packet;
                 packetList[packets[packet]['index']] = packets[packet];
             }
             xhr.open('GET', '../cards/other.json');

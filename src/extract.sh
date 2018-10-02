@@ -48,8 +48,8 @@ extract_packet() {
     echo -e '\t\t"description": "'"$packetname"'",'
     echo -e '\t\t"humans": 6,'
     echo -e '\t\t"robots": '"$count,"
-    echo -e '\t\t"primary": 6,'
-    echo -e '\t\t"secondary": 6,'
+    echo -e '\t\t"primary": 3,'
+    echo -e '\t\t"secondary": 3'
     echo -en '\t}'
 
     rotation="90"
