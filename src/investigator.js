@@ -77,6 +77,11 @@ function addCard(path, list, func) {
     list.appendChild(li);
 }
 
+function enable(node) {
+    node.disabled = false;
+    node.parentNode.classList.remove('disabled');
+}
+
 function showPrompts(packet) {
     instruct('Choose two primary and two secondary interrogation prompts.');
     var ulRest = document.getElementById('prompts');
@@ -99,6 +104,9 @@ function showPrompts(packet) {
             for (var i = 0; i < ulChosen.children.length; ++i) {
                 ulChosen.children[i].firstChild.onclick = null;
             }
+            instruct('Calibrate penalty and confirm suspect identity. Check form VK-82s.');
+            enable(document.getElementById('penalty-check'));
+            enable(document.getElementById('identity-check'));
         }
     }; };
 
@@ -110,4 +118,84 @@ function showPrompts(packet) {
             addCard(packet['name'] + '/investigator/secondary-' + i, ulRest, swapListFunc('secondary'));
         }
     }
+}
+
+function onChecked () {
+    if (
+        document.getElementById('penalty-check').checked &&
+        document.getElementById('identity-check').checked
+    ) {
+        document.getElementById('penalty-check').disabled = true;
+        document.getElementById('identity-check').disabled = true;
+        enable(document.getElementById('minutes'));
+        enable(document.getElementById('seconds'));
+        enable(document.getElementById('clock-start'));
+        instruct('Start the clock when ready.');
+    }
+}
+
+function pip (n) {
+    var pip = document.getElementById('pip');
+    pip.play();
+    --n;
+    var interval = setInterval(function () {
+        if (n == 0) {
+            clearInterval(interval);
+        } else {
+            --n;
+            pip.play();
+        }
+    }, 500);
+}
+
+var intervalClock;
+function startClock () {
+    var minutes = 5;
+    var seconds = 0;
+    instruct('Interrogate suspect.');
+    intervalClock = setInterval(function () {
+        if (seconds === 0) {
+            if (minutes === 0) {
+                finish();
+                return;
+            } else {
+                pip(minutes);
+                seconds = 59;
+                minutes -= 1;
+            }
+        } else {
+            seconds -= 1;
+        }
+        document.getElementById('minutes').innerHTML = minutes;
+        document.getElementById('seconds').innerHTML = seconds < 10 ? '0' + seconds : seconds;
+    }, 1000);
+    enable(document.getElementById('robot-check'));
+    enable(document.getElementById('certify'));
+}
+
+function stopClock () {
+    clearInterval(intervalClock);
+    document.getElementById('minutes').innerHTML = '-';
+    document.getElementById('seconds').innerHTML = '--';
+}
+
+function finish () {
+    stopClock();
+    document.getElementById('flatline').play();
+    enable(document.getElementById('human-check'));
+    instruct('Ask final question and complete form VK-82s.');
+}
+
+function certified () {
+    stopClock();
+    if (document.getElementById('robot-check').checked) {
+        instruct('Send suspect for disassembly.');
+    } else {
+        console.assert(document.getElementById('human-check').checked);
+        instruct("Shake suspect's hand and apologize for the inconvenience.");
+    }
+}
+
+function enableCertify () {
+    enable(document.getElementById('certify'));
 }

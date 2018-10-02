@@ -12,8 +12,9 @@ Loading...
 </div>
 
 <div id="investigator" class="hidden">
-<p id="instruction">Select a penalty to discard.</p>
-<table><tr>
+<table>
+<thead><tr><td colspan="3" id="instruction">Select a penalty to discard.</td></tr></thead>
+<tr>
 <td class="narrow">
 <ul id="penalties" class="tallcards"></ul>
 <img id="suspect-note" class="hidden tallcards">
@@ -29,7 +30,6 @@ Loading...
 <tbody>
 <tr><td>VK-82</td><td>short form</td>
 <tr><td colspan=2><hr></td>
-</colgroup>
 <tr><td>Interview #</td><td id="interview-id"></td>
 <tr><td>Suspect #</td><td id="suspect-id" class="hidden">
 <input id="suspect-id-input" type="numeric" size="6"></input><input id="suspect-id-submit" type="button" value="OK" onclick="submitSuspectId()"/>
@@ -39,25 +39,27 @@ Loading...
 <tr><td colspan=2><hr></td>
 <tr><td>Suspect name</td><td><input type="text" size="15"></input>
 <tr><td colspan=2><hr></td>
-<tr><td colspan="2"><input type=checkbox>Penalty calibrated</input>
-<tr><td colspan="2"><input type=checkbox>Identity confirmed</input>
+<tr><td colspan="2" class="disabled"><input id='penalty-check' type=checkbox disabled onchange="onChecked()">Penalty calibrated
+<tr><td colspan="2" class="disabled"><input id='identity-check' type=checkbox disabled onchange="onChecked()">Identity confirmed
 <tr><td colspan=2><hr></td>
 <tr><td colspan=2>Notes</td>
 <tr><td colspan=2><textarea style="width: 100%" rows=8></textarea></td>
 <tr><td colspan=2><hr></td>
 <tr><td colspan=2>Certification</td>
-<tr><td class="disabled"><input type="radio" name="certification" disabled>Robot</td>
-    <td class="disabled"><input type="radio" name="certification" disabled>Human</td>
+<tr><td class="disabled"><input id="robot-check" type="radio" name="certification" disabled onchange="enableCertify()">Robot</td>
+    <td class="disabled"><input id="human-check" type="radio" name="certification" disabled onchange="enableCertify()">Human</td>
+<tr><td colspan=2 class="disabled" style="text-align: center"><button disabled id="certify" onclick="certified(); return false;">Certify</button></td>
 </tbody>
 </table>
-
-<div class="disabled clock"><span id="minutes">5</span>:<span id=seconds">00</span>
 </form>
-
+<div style="text-align: center;"><button id='clock-start' onclick='startClock()' disabled>Start</button></div>
+<div class="disabled clock"><span id="minutes">5</span>:<span id="seconds">00</span></div>
 </td></tr></table>
 
 </div>
 
+<audio src="../sound/pip.mp3" id="pip" width="0">
+<audio src="../sound/flatline.mp3" id="flatline" width="0">
 <script src="common.js"></script>
 <script src="investigator.js"></script>
 </body>

@@ -61,7 +61,7 @@ form > table {
     font-size: 10pt;
 }
 
-thead {
+form > table > thead {
     text-align: center;
     font-weight: bold;
     font-size: 18pt;
@@ -84,7 +84,7 @@ td.narrow {
 }
 
 textarea, input[type="text"], input[type="numeric"] {
-    padding: 0;
+    padding: 1pt;
     margin: 0;
     border: 0;
     background-color: #ddd;
@@ -94,7 +94,7 @@ textarea {
     width: 100%;
 }
 
-.disabled {
+.disabled, [disabled] {
     opacity: 50%;
     color: gray;
 }
