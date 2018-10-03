@@ -147,6 +147,7 @@ function pip (n) {
 
 var intervalClock;
 function startClock () {
+    document.getElementById('clock-start').disabled = true;
     var minutes = 5;
     var seconds = 0;
     instruct('Interrogate suspect.');
