@@ -173,9 +173,15 @@ function startClock () {
 }
 
 function stopClock () {
-    clearInterval(intervalClock);
     document.getElementById('minutes').innerHTML = '-';
     document.getElementById('seconds').innerHTML = '--';
+    if (intervalClock) {
+        clearInterval(intervalClock);
+        intervalClock = null;
+        return true;
+    } else {
+        return false;
+    }
 }
 
 function finish () {
@@ -186,7 +192,7 @@ function finish () {
 }
 
 function certified () {
-    stopClock();
+    if (stopClock()) document.getElementById('flatline').play();
     if (document.getElementById('robot-check').checked) {
         instruct('Send suspect for disassembly.');
     } else {
