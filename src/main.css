@@ -20,7 +20,7 @@ img.icon {
 
 ul.widecards img, img.widecards {
     width: auto;
-    max-height: 5cm;
+    max-height: calc(100% - 0.2cm);
 }
 
 ul.tallcards img, img.tallcards {

@@ -14,16 +14,19 @@ Loading...
 <div id="suspect" class="hidden">
 
 <div id="suspect-id" class="textbox"></div>
-<table><tr>
-<td>
+<table style="max-height: 100vh">
+<tr><td colspan="2"> 
+<ul id="notes" class="tallcards hidden"></ul>
+</td></tr>
+<tr>
+<td class="wide">
 <form id="select-interview" onsubmit="submitInterviewId(); return false;" class='textbox'>
 <label for="interview-id-input">Enter interview #</label><input id="interview-id-input" type="numeric"></input><input id="interview-id-submit" type="submit" value="OK"</input>
 <p id="suspect-id-error" class="error hidden">Invalid interview ID.</p>
 </form>
 
 <ul id="penalties" class="tallcards"></ul> 
-<ul id="notes" class="tallcards hidden"></ul>
-</td><td>
+</td><td class="wide">
 <ul id="packets" class="tallcards"></ul>
 <ul id="roles" class="tallcards"></ul>
 </td></tr></table>
