@@ -151,18 +151,19 @@ function startClock () {
     var minutes = 5;
     var seconds = 0;
     instruct('Interrogate suspect.');
+    pip(minutes);
     intervalClock = setInterval(function () {
         if (seconds === 0) {
             if (minutes === 0) {
                 finish();
                 return;
             } else {
-                pip(minutes);
                 seconds = 59;
                 minutes -= 1;
             }
         } else {
             seconds -= 1;
+            if (seconds === 0 && minutes != 0) pip(minutes);
         }
         document.getElementById('minutes').innerHTML = minutes;
         document.getElementById('seconds').innerHTML = seconds < 10 ? '0' + seconds : seconds;
