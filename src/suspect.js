@@ -24,21 +24,14 @@ var chosenPenalty;
 function showPenalties (penalties) {
     var ul = document.getElementById('penalties');
     penalties.forEach(function (penalty) {
-        var li = document.createElement('li');
-        var link = document.createElement('a');
-        li.appendChild(link);
-        link.onclick = function (penalty) { return function () {
+        addCard('penalties/' + penalty, ul, function () {
             var ul = this.parentNode.parentNode;
             for (var i = ul.children.length-1; i >= 0; --i) {
                 if (ul.children[i] != this.parentNode) ul.removeChild(ul.children[i]);
             }
             chosenPenalty = penalty;
             showPackets();
-        }; }(penalty);
-        var img = document.createElement('img');
-        link.appendChild(img);
-        img.src = '../cards/penalties/' + penalty + '.png';
-        ul.appendChild(li);
+        });
     });
 }
 
@@ -78,18 +71,11 @@ function showRoles(packet) {
     }
 
     var ul = document.getElementById('roles');
-    roles.forEach(function (card) {
-        var li = document.createElement('li');
-        var link = document.createElement('a');
-        li.appendChild(link);
-        link.onclick = function (packet, role) { return function () {
+    roles.forEach(function (role) {
+        addCard(packet + '/suspect/' + role, ul, function () {
             this.onclick = undefined;
             showNotes(this.parentNode, packet, role);
-        }; }(packet, card);
-        var img = document.createElement('img');
-        link.appendChild(img)
-        img.src = '../cards/' + packet + '/suspect/' + card + '.png';
-        ul.appendChild(li);
+        });
     });
 }
 
@@ -102,10 +88,7 @@ function showNotes(li, packet, role) {
     var ul = document.getElementById('notes');
     unhide(ul);
     choose(2, otherCards['notes']).forEach(function (note) {
-        var li = document.createElement('li');
-        var link = document.createElement('a');
-        li.appendChild(link);
-        link.onclick = function (suspect) { return function () {
+        addCard('notes/' + note, ul, function () {
             this.onclick = undefined;
             var li = this.parentNode;
             var notes = li.parentNode.childNodes;
@@ -116,10 +99,6 @@ function showNotes(li, packet, role) {
             document.getElementById('suspect-id').appendChild(
                 document.createTextNode('Suspect #'+encode([chosenPenalty, chosenPacket, suspect]))
             );
-        }; }(note);
-        var img = document.createElement('img');
-        link.appendChild(img)
-        img.src = '../cards/notes/' + note + '.png';
-        ul.appendChild(li);
+        });
     });
 }
