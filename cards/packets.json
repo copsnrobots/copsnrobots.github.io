@@ -38,5 +38,21 @@
 		"robots": 6,
 		"primary": 3,
 		"secondary": 3
+	},
+	"hand": {
+		"index": 5,
+		"description": "Think of Your Body as Part of Yourself",
+		"humans": 6,
+		"robots": 6,
+		"primary": 3,
+		"secondary": 3
+	},
+	"skull": {
+		"index": 6,
+		"description": "Recognize Your Moral Failings",
+		"humans": 6,
+		"robots": 6,
+		"primary": 3,
+		"secondary": 3
 	}
 }

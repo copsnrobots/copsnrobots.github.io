@@ -1,3 +1,4 @@
+#!/bin/bash
 set -eu -o pipefail
 
 triple_split="150 1237 2325"
@@ -149,9 +150,26 @@ done
 echo "  \"penalties\": $count }" >> 'cards/other.json'
 
 file="pdfs/Hope And Dreams Cards (Updated Public File).pdf"
-
 packet=hourglass
 packetname="Hopes and Dreams"
+start=0
+count=6
+questionstart=8
+extract_packet
+echo ','
+
+file="pdfs/Bodily Connection Cards (Public File).pdf"
+packet=hand
+packetname="Think of Your Body as Part of Yourself"
+start=0
+count=6
+questionstart=8
+extract_packet
+echo ','
+
+file="pdfs/Recognize Your Moral Failings Cards (Public File).pdf"
+packet=skull
+packetname="Recognize Your Moral Failings"
 start=0
 count=6
 questionstart=8
