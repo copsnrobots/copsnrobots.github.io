@@ -38,20 +38,14 @@ function showPenalties (penalties) {
 var chosenPacket;
 function showPackets () {
     var ul = document.getElementById('packets');
-    for (var packet in packets) {
-        var li = document.createElement('li');
-        var link = document.createElement('a');
-        li.appendChild(link);
-        link.onclick = function (packet) { return function () {
+    for (var packet_ in packets) {
+        var packet = packet_; // for capture
+        var img = addCard(packet + '/suspect/back', ul, function () {
             chosenPacket = packets[packet]['index'];
             showRoles(packet);
-        }; }(packet);
-        var img = document.createElement('img');
-        link.appendChild(img)
-        img.src = '../cards/' + packet + '/suspect/back.png';
+        }).img;
         img.alt = packet;
         img.title = packets[packet]['description'];
-        ul.appendChild(li);
     }
 }
 

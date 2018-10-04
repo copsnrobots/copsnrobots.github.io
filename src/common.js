@@ -101,6 +101,7 @@ function addCard(path, list, func) {
     link.appendChild(img);
     img.src = '../cards/'+path+'.png';
     list.appendChild(li);
+    return {'img': img, 'li': li};
 }
 
 

@@ -9,11 +9,7 @@ function showPenalties () {
     unhide(ul);
     penalties = choose(3, otherCards['penalties']);
     penalties.forEach(function (penalty) {
-        var li = document.createElement('li');
-        var link = document.createElement('a');
-        li.appendChild(link);
-        li.id = 'penalty-'+penalty
-        link.onclick = function (penalty) { return function () {
+        addCard('penalties/' + penalty, ul, function () {
             var ul = this.parentNode.parentNode;
             ul.removeChild(this.parentNode);
             penalties.delete(penalty);
@@ -28,11 +24,7 @@ function showPenalties () {
             for (var packet in packets) {
                 addCard(packet + '/investigator/primary-back', ulChosen, undefined);
             }
-        }; }(penalty);
-        var img = document.createElement('img');
-        link.appendChild(img);
-        img.src = '../cards/penalties/' + penalty + '.png';
-        ul.appendChild(li);
+        }).li.id = 'penalty-'+penalty;
     });
 }
 
