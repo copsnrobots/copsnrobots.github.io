@@ -8,6 +8,7 @@
         font-family: 'Lucida Sans Typewriter', monospace;
         background-color: black;
         color: white;
+        max-width: 45em;
     }
 
     a {
@@ -17,13 +18,70 @@
     a:visited {
         color: white;
     }
+
+    .legal {
+        margin-top: 6em;
+        font-size: 10pt;
+    }
+
+    .hidden {
+        display: none;
+    }
 </style>
 </head>
 <body>
+<p>Cops 'n' Robots is an online version of the game
+<a href="https://www.kickstarter.com/projects/tommy-maranges/inhuman-conditions-a-game-of-cops-and-robots/description">Inhuman Conditions.</a></p>
+
 Please sign in:
 <ul>
 <li><a href="src/suspect.html">Suspect</a></li>
 <li><a href="src/investigator.html">Investigator</a></li>
 </ul>
+
+<div class="legal">
+<p>Contributions are welcome! Please submit pull requests
+<a href="https://github.com/copsnrobots/copsnrobots.github.io">via GitHub</a>
+
+<p>Inhuman Conditions was created by Tommy Maranges and Cory O'Brien. Art for
+Inhuman Conditions is by Mac Schuber. Additional typesetting for Inhuman
+Conditions is by Bobby Reichle.</p>
+
+<a class="legal" href="#" onclick="unhide(document.getElementById('licensing')); return false;">Licensing</a>
+<div id="licensing" class="hidden">
+<p>The graphics files in the <code>cards</code> directory are extracted from the Inhuman
+Conditions Print &amp; Play, and the Inhuman Conditions Print &amp; Play expansions
+"Hopes and Dreams", "Moral Failings" and "Bodily Connection". The appearance of
+the Identity Compliance Audit form is based on the Identity Compliance Audit
+form from Inhuman Conditions Print &amp; Play, adapted for the Web. The rules of
+Cops 'n' Robots are based on the rules of the Inhuman Conditions Print 'n' Play.</p>
+<p>Inhuman Conditions Print &amp; Play, the Inhuman Conditions Print &amp; Play expansions,
+and Cops 'n' Robots are licensed under the Creative Commons
+Attribution-NonCommercial-ShareAlike 4.0 International License.  To view a copy
+of this license, visit <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">http://creativecommons.org/licenses/by-nc-sa/4.0/</a> or send
+a letter to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.</p>
+<p>YOU ARE FREE TO:</p>
+<ul>
+<li>Share — copy and redistribute the game in any medium or format</li>
+<li>Adapt — remix, transform, and build upon the game</li>
+</ul>
+<p>UNDER THE FOLLOWING TERMS:</p>
+<ul>
+<li>Attribution — If you make something using our game, you need to give us credit
+and link back to us, and you need to explain what you changed.</li>
+<li>Non-Commercial — You can’t use our game to make money.</li>
+<li>Share Alike — If you remix, transform, or build upon our game, you have to
+release your work under the same Creative Commons license that we use (BY-NC-SA
+4.0).</li>
+<li>No additional restrictions — You can’t apply legal terms or technological
+measures to your work that legally restrict others from doing anything our
+license allows. That means you can’t submit anything using our game to any app
+store without our approval.  You can learn more about Creative Commons at
+CreativeCommons.org. (Our license is available at
+CreativeCommons.org/licenses/by-nc-sa/4.0/legalcode).</li>
+</ul>
+</div>
+</div>
+<script src="src/common.js"></script>
 </body>
 </html>
