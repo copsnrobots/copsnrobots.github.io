@@ -104,4 +104,8 @@ function addCard(path, list, func) {
     return {'img': img, 'li': li};
 }
 
+function instruct (html) {
+    document.getElementById('instruction').innerHTML = html;
+}
+
 

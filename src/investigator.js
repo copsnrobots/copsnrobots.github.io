@@ -1,7 +1,3 @@
-function instruct (html) {
-    document.getElementById('instruction').innerHTML = html;
-}
-
 var penalties;
 function showPenalties () {
     unhide(document.getElementById('investigator'));

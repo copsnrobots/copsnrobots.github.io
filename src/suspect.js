@@ -33,6 +33,7 @@ function showPenalties (penalties) {
             showPackets();
         });
     });
+    instruct('Choose a penalty, which you may have to perform if you are a robot.');
 }
 
 var chosenPacket;
@@ -47,6 +48,7 @@ function showPackets () {
         img.alt = packet;
         img.title = packets[packet]['description'];
     }
+    instruct('Agree on a topic with the investigator, and select the corresponding card deck.');
 }
 
 function showRoles(packet) {
@@ -71,6 +73,7 @@ function showRoles(packet) {
             showNotes(this.parentNode, packet, role);
         });
     });
+    instruct('Choose a role card.');
 }
 
 function showNotes(li, packet, role) {
@@ -90,9 +93,9 @@ function showNotes(li, packet, role) {
             for (var i = notes.length-1; i >=0; --i) {
                 if (notes[i] != li) li.parentNode.removeChild(notes[i]);
             }
-            document.getElementById('suspect-id').appendChild(
-                document.createTextNode('Suspect #'+encode([chosenPenalty, chosenPacket, suspect]))
-            );
+            instruct("Tell investigator that you are suspect #"+ encode([chosenPenalty, chosenPacket, note])
+                + " and follow directions.");
         });
     });
+    instruct("Choose a suspect note.");
 }
