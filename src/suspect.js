@@ -39,7 +39,7 @@ function showPenalties (penalties) {
 var chosenPacket;
 function showPackets () {
     var ul = document.getElementById('packets');
-    for (var packet_ in packets) {
+    for (var packet_ in packets) { (function () {
         var packet = packet_; // for capture
         var img = addCard(packet + '/suspect/back', ul, function () {
             chosenPacket = packets[packet]['index'];
@@ -47,7 +47,7 @@ function showPackets () {
         }).img;
         img.alt = packet;
         img.title = packets[packet]['description'];
-    }
+    })(); }
     instruct('Agree on a topic with the investigator, and select the corresponding card deck.');
 }
 
