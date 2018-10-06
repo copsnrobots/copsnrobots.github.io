@@ -58,21 +58,17 @@ div {
     max-height: 100vh;
 }
 
-form > table {
+table.form {
     border: 1px solid;
     font-size: 10pt;
     background-color: white;
     color: black;
 }
 
-form > table > thead {
+table.form > thead {
     text-align: center;
     font-weight: bold;
     font-size: 18pt;
-}
-
-form td {
-    vertical-align: middle;
 }
 
 td {

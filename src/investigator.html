@@ -24,34 +24,39 @@ Loading...
 <hr id="prompts-separator" class="hidden">
 <ul id="prompts" class="widecards"></ul>
 </td><td class="narrow">
-<form>
-<table>
+<table class="form">
 <thead><tr><td colspan="2">Identity Compliance Audit</td></tr></thead>
 <tbody>
 <tr><td>VK-82</td><td>short form</td>
 <tr><td colspan=2><hr></td>
 <tr><td>Interview #</td><td id="interview-id"></td>
 <tr><td>Suspect #</td><td id="suspect-id" class="hidden">
-<input id="suspect-id-input" type="numeric" size="6"></input><input id="suspect-id-submit" type="button" value="OK" onclick="submitSuspectId()"/>
-<div id="suspect-id-error" class="error hidden">Invalid suspect ID.</p>
+<form onsubmit="submitSuspectId(); return false;">
+<input id="suspect-id-input" type="numeric" size="6"></input><input id="suspect-id-submit" type="submit" value="OK"/>
+<p id="suspect-id-error" class="error hidden">Invalid suspect ID.</p>
+</form>
 </td>
+</tr>
 <tr><td>Packet</td><td id="packet"></td>
 <tr><td colspan=2><hr></td>
 <tr><td>Suspect name</td><td><input type="text" size="15"></input>
 <tr><td colspan=2><hr></td>
-<tr><td colspan="2" class="disabled"><input id='penalty-check' type=checkbox disabled onchange="onChecked()">Penalty calibrated
-<tr><td colspan="2" class="disabled"><input id='identity-check' type=checkbox disabled onchange="onChecked()">Identity confirmed
+<tr><td colspan="2" class="disabled"><input id='penalty-check' type=checkbox disabled onchange="onChecked()"><label for='penalty-check'>Penalty calibrated</label></td></tr>
+<tr><td colspan="2" class="disabled"><input id='identity-check' type=checkbox disabled onchange="onChecked()"><label for='identity-check'>Identity confirmed</label></td></tr>
 <tr><td colspan=2><hr></td>
 <tr><td colspan=2>Notes</td>
 <tr><td colspan=2><textarea style="width: 100%" rows=8></textarea></td>
 <tr><td colspan=2><hr></td>
+<form onsubmit="certified(); return false;">
 <tr><td colspan=2>Certification</td>
-<tr><td class="disabled"><input id="robot-check" type="radio" name="certification" disabled onchange="enableCertify()">Robot</td>
-    <td class="disabled"><input id="human-check" type="radio" name="certification" disabled onchange="enableCertify()">Human</td>
-<tr><td colspan=2 class="disabled" style="text-align: center"><button disabled id="certify" onclick="certified(); return false;">Certify</button></td>
+<tr>
+    <td class="disabled"><input id="robot-check" type="radio" name="certification" disabled onchange="enableCertify()"><label for="robot-check">Robot</label></td>
+    <td class="disabled"><input id="human-check" type="radio" name="certification" disabled onchange="enableCertify()"><label for="human-check">Human</label></td>
+<tr><td colspan=2 class="disabled" style="text-align: center"><input
+type="submit" value="Certify" disabled id="certify"/></td></tr>
+</form>
 </tbody>
 </table>
-</form>
 <div style="text-align: center;"><button id='clock-start' onclick='startClock()' disabled>Start</button></div>
 <div class="disabled clock"><span id="minutes">5</span>:<span id="seconds">00</span></div>
 </td></tr></table>
