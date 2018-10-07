@@ -32,7 +32,7 @@ Loading...
 <tr><td>Interview #</td><td id="interview-id"></td>
 <tr><td>Suspect #</td><td id="suspect-id" class="hidden">
 <form onsubmit="submitSuspectId(); return false;">
-<input id="suspect-id-input" type="numeric" size="6"></input><input id="suspect-id-submit" type="submit" value="OK"/>
+<input id="suspect-id-input" type="tel" size="6" pattern="[0-9]{2,6}"></input><input id="suspect-id-submit" type="submit" value="OK"/>
 <p id="suspect-id-error" class="error hidden">Invalid suspect ID.</p>
 </form>
 </td>

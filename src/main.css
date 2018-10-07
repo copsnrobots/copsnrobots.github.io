@@ -83,7 +83,7 @@ td.narrow {
     width: 25%;
 }
 
-textarea, input[type="text"], input[type="numeric"] {
+textarea, input[type="text"], input[type="tel"] {
     padding: 1pt;
     margin: 0;
     border: 0;
