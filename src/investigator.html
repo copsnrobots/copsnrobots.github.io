@@ -32,17 +32,17 @@ Loading...
 <tr><td>Interview #</td><td id="interview-id"></td>
 <tr><td>Suspect #</td><td id="suspect-id" class="hidden">
 <form onsubmit="submitSuspectId(); return false;">
-<input id="suspect-id-input" type="tel" size="6" pattern="[0-9]{2,6}"></input><input id="suspect-id-submit" type="submit" value="OK"/>
-<p id="suspect-id-error" class="error hidden">Invalid suspect ID.</p>
+<input id="suspect-id-input" type="tel" size="6" pattern="[0-9]{2,6}" autocomplete="off"/><input id="suspect-id-submit" type="submit" value="OK"/>
+<div id="suspect-id-error" class="error hidden">Invalid suspect ID.</div>
 </form>
 </td>
 </tr>
 <tr><td>Packet</td><td id="packet"></td>
 <tr><td colspan=2><hr></td>
-<tr><td>Suspect name</td><td><input type="text" size="15"></input>
+<tr><td>Suspect name</td><td><input type="text" size="15" autocomplete="off"/>
 <tr><td colspan=2><hr></td>
-<tr><td colspan="2" class="disabled"><input id='penalty-check' type=checkbox disabled onchange="onChecked()"><label for='penalty-check'>Penalty calibrated</label></td></tr>
-<tr><td colspan="2" class="disabled"><input id='identity-check' type=checkbox disabled onchange="onChecked()"><label for='identity-check'>Identity confirmed</label></td></tr>
+<tr><td colspan="2" class="disabled"><input id='penalty-check' type=checkbox disabled onchange="onChecked()" autocomplete="off"/><label for='penalty-check'>Penalty calibrated</label></td></tr>
+<tr><td colspan="2" class="disabled"><input id='identity-check' type=checkbox disabled onchange="onChecked()" autocomplete="off"/><label for='identity-check'>Identity confirmed</label></td></tr>
 <tr><td colspan=2><hr></td>
 <tr><td colspan=2>Notes</td>
 <tr><td colspan=2><textarea style="width: 100%" rows=8></textarea></td>
@@ -50,8 +50,8 @@ Loading...
 <form onsubmit="certified(); return false;">
 <tr><td colspan=2>Certification</td>
 <tr>
-    <td class="disabled"><input id="robot-check" type="radio" name="certification" disabled onchange="enableCertify()"><label for="robot-check">Robot</label></td>
-    <td class="disabled"><input id="human-check" type="radio" name="certification" disabled onchange="enableCertify()"><label for="human-check">Human</label></td>
+    <td class="disabled"><input id="robot-check" type="radio" name="certification" disabled onchange="enableCertify()" autocomplete="off"/><label for="robot-check">Robot</label></td>
+    <td class="disabled"><input id="human-check" type="radio" name="certification" disabled onchange="enableCertify()" autocomplete="off"/><label for="human-check">Human</label></td>
 <tr><td colspan=2 class="disabled" style="text-align: center"><input
 type="submit" value="Certify" disabled id="certify"/></td></tr>
 </form>
