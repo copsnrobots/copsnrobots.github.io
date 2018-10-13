@@ -174,3 +174,12 @@ start=0
 count=6
 questionstart=8
 extract_packet
+echo ','
+
+file="pdfs/Threat Response Cards (Public File).pdf"
+packet=caterpillar
+packetname="Respond to threats appropriately"
+start=0
+count=6
+questionstart=8
+extract_packet

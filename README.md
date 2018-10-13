@@ -7,10 +7,11 @@ Conditions is by Bobby Reichle.
 
 The graphics files in the `cards` directory are extracted from the Inhuman
 Conditions Print & Play, and the Inhuman Conditions Print & Play expansions
-"Hopes and Dreams", "Moral Failings" and "Bodily Connection". The appearance of
-the Identity Compliance Audit form is based on the Identity Compliance Audit
-form from Inhuman Conditions Print & Play, adapted for the Web. The rules of
-Cops 'n' Robots are based on the rules of the Inhuman Conditions Print 'n' Play.
+"Hopes and Dreams", "Moral Failings", "Bodily Connection" and "Threat Response".
+The appearance of the Identity Compliance Audit form is based on the Identity
+Compliance Audit form from Inhuman Conditions Print & Play, adapted for the Web.
+The rules and gameplay of Cops 'n' Robots are based on the Inhuman Conditions
+Print 'n' Play.
 
 Inhuman Conditions Print & Play, the Inhuman Conditions Print & Play expansions,
 and Cops 'n' Robots are licensed under the Creative Commons

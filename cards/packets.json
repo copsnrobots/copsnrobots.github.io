@@ -54,5 +54,13 @@
 		"robots": 6,
 		"primary": 3,
 		"secondary": 3
+	},
+	"caterpillar": {
+		"index": 7,
+		"description": "Respond to threats appropriately",
+		"humans": 6,
+		"robots": 6,
+		"primary": 3,
+		"secondary": 3
 	}
 }
