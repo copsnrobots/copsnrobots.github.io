@@ -47,7 +47,7 @@ extract_packet() {
     echo -e '\t"'"$packet"'": {'
     echo -e '\t\t"index": '"$((packet_index++))"','
     echo -e '\t\t"description": "'"$packetname"'",'
-    echo -e '\t\t"humans": 6,'
+    echo -e '\t\t"humans": 3,'
     echo -e '\t\t"robots": '"$count,"
     echo -e '\t\t"primary": 3,'
     echo -e '\t\t"secondary": 3'

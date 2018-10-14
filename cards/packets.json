@@ -2,7 +2,7 @@
 	"chair": {
 		"index": 0,
 		"description": "Process Your Day",
-		"humans": 6,
+		"humans": 3,
 		"robots": 6,
 		"primary": 3,
 		"secondary": 3
@@ -10,7 +10,7 @@
 	"dragon": {
 		"index": 1,
 		"description": "Demonstrate Imagination",
-		"humans": 6,
+		"humans": 3,
 		"robots": 6,
 		"primary": 3,
 		"secondary": 3
@@ -18,7 +18,7 @@
 	"rose": {
 		"index": 2,
 		"description": "Experience and Process Grief",
-		"humans": 6,
+		"humans": 3,
 		"robots": 6,
 		"primary": 3,
 		"secondary": 3
@@ -26,7 +26,7 @@
 	"coffeepot": {
 		"index": 3,
 		"description": "Apply Creative Problem Solving",
-		"humans": 6,
+		"humans": 3,
 		"robots": 7,
 		"primary": 3,
 		"secondary": 3
@@ -34,7 +34,7 @@
 	"hourglass": {
 		"index": 4,
 		"description": "Hopes and Dreams",
-		"humans": 6,
+		"humans": 3,
 		"robots": 6,
 		"primary": 3,
 		"secondary": 3
@@ -42,7 +42,7 @@
 	"hand": {
 		"index": 5,
 		"description": "Think of Your Body as Part of Yourself",
-		"humans": 6,
+		"humans": 3,
 		"robots": 6,
 		"primary": 3,
 		"secondary": 3
@@ -50,7 +50,7 @@
 	"skull": {
 		"index": 6,
 		"description": "Recognize Your Moral Failings",
-		"humans": 6,
+		"humans": 3,
 		"robots": 6,
 		"primary": 3,
 		"secondary": 3
@@ -58,7 +58,7 @@
 	"caterpillar": {
 		"index": 7,
 		"description": "Respond to threats appropriately",
-		"humans": 6,
+		"humans": 3,
 		"robots": 6,
 		"primary": 3,
 		"secondary": 3
