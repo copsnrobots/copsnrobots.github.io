@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Harry's Balls</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<style>
+.column {
+	width: 7.5em;
+	height: 1.5em;
+	border: 1px solid black;
+}
+.arrows {
+	width: 7.5em;
+	height: 1.5em;
+}
+.ball {
+	display: inline-block;
+	width: 1.5em;
+}
+#hole {
+	width: 1.5em;
+	height: 1.5em;
+	border: 1px solid black;
+}
+#blackhole {
+	display: none;
+}
+</style>
+</head>
+<body>
+Moves: <span id="moves">0</span>
+<div id="hole"><span id="placeholder" style="color:white">⬤</span></div>
+<span id="blackhole"></span>
+<div class="column" id="column-0"></div>
+<div class="arrows" id="column-example"><!--
+  --><span class="ball" style="color:black">▼</span><!--
+  --><span class="ball" style="color:green">▼</span><!--
+  --><span class="ball" style="color:goldenrod">▼</span><!--
+  --><span class="ball" style="color:blue">▼</span><!--
+	--><span class="ball" style="color:red">▼</span><!--
+--></div>
+<div>
+<div class="column" id="column-1"><!--
+  --><span class="ball" style="color:black">⬤</span><!--
+  --><span class="ball" style="color:green">⬤</span><!--
+  --><span class="ball" style="color:goldenrod">⬤</span><!--
+  --><span class="ball" style="color:blue">⬤</span><!--
+	--><span class="ball" style="color:red">⬤</span><!--
+--></div>
+</div>
+<div class="arrows" id="column-example"><!--
+  --><span class="ball" style="color:black">▲</span><!--
+  --><span class="ball" style="color:green">▲</span><!--
+  --><span class="ball" style="color:goldenrod">▲</span><!--
+  --><span class="ball" style="color:blue">▲</span><!--
+	--><span class="ball" style="color:red">▲</span><!--
+--></div>
+</body>
+<script>
+const numColors = 5;
+const numColumns = 6;
+var hole = document.getElementById("hole");
+var blackhole = document.getElementById("blackhole");
+var placeholder = document.getElementById("placeholder");
+var moves = document.getElementById("moves");
+var numMoves = 0;
+
+function popChild(parent) {
+  var child = parent.lastElementChild;
+  parent.removeChild(child);
+  return child;
+}
+
+var column = document.getElementById("column-1")
+for (var i = 2; i < numColumns; ++i) {
+	columnNew = column.cloneNode(true);
+	columnNew.id = "column-"+i;
+	column.parentElement.appendChild(columnNew);
+}
+
+for (var i = 1; i < numColumns; ++i) {
+  var column = document.getElementById("column-"+i)
+	for (var j = numColors; j != 0; --j) {
+		var ball = column.children[Math.floor(Math.random()*j)];
+		column.removeChild(ball);
+		column.appendChild(ball);
+  }
+}
+
+function doColumn(column) {
+  if (placeholder.parentElement === hole) {
+		if (column.children.length !== 0) {
+      hole.removeChild(placeholder);
+      blackhole.appendChild(placeholder);
+      hole.appendChild(popChild(column));
+    }
+  } else if (column.children.length < numColors) {
+		++numMoves;
+    moves.innerText = numMoves;
+    column.appendChild(popChild(hole));
+    blackhole.removeChild(placeholder);
+    hole.appendChild(placeholder);
+  }
+}
+$(".column").click(function () {
+	doColumn(this);
+});
+</script>
+</html>
+
